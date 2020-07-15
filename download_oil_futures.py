@@ -18,8 +18,7 @@ def main():
         c = quandl.get("CHRIS/CME_CL" + str(i) + ".6", authtoken=key)
         c = c.rename(columns={'Settle': 'CL' + str(i) + 'Settle'})
         oilfutures = oilfutures.join(c)
-    oilfutures.to_excel(
-        "/Users/chase/Documents/Python/Herrera/oilfutures.xlsx", na_rep='NaN')
+    oilfutures.to_excel(path + "oilfutures.xlsx", na_rep='NaN')
 
 
 if __name__ == "__main__":
