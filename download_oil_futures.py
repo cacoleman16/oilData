@@ -28,7 +28,7 @@ def main():
             apiKey.path + file_name, na_rep='NaN')
 
     except:
-        print("There was a problem retreiving the data. Conact chasecoleman@uky.edu to update the code")
+        print("There was a problem retreiving the data. Contact chasecoleman@uky.edu to update the code")
 
 
 if __name__ == "__main__":
