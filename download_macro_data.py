@@ -41,7 +41,7 @@ def main():
             df['Real GDP'] = fred.get_series('GDPC1')
             df.to_excel(path + "GDP.xlsx", na_rep='NaN')
     except:
-        print("An error occured getting the data. Conact chasecoleman@uky.edu ")
+        print("An error occured getting the data. Contact chasecoleman@uky.edu to update the code")
 
 
 if __name__ == "__main__":
