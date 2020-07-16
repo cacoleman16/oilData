@@ -3,7 +3,7 @@ import pandas as pd
 import os
 from apiKey import FRED_API_KEY
 from fredapi import Fred
-from apiKey import path  # you can remove this and change the path
+#from apiKey import path  # you can remove this and change the path
 key = FRED_API_KEY
 file_name = "macro_data.xlsx"  # this can be changed to change the file name
 fred = Fred(api_key=key)
