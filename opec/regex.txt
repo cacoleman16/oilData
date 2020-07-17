@@ -1,0 +1,5 @@
+
+code for regex to isolate meeting and the number
+
+
+df['some'] = df['text'].str.extract(r'^([0-9]+(rd|th|st|nd).*meeting)')
