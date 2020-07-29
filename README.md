@@ -1,3 +1,9 @@
+# Update
+
+The data needs continued to grow so I create a generic class in the file getDataFromAPI.py that could be applied for various APIs.
+
+
+
 # oilData
 Get's Oil Data from various sources for academic research.
 This is a working version.
