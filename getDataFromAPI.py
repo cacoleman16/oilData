@@ -1,13 +1,14 @@
+import quandl
+import apiKey
 import numpy as np
 import pandas as pd
 import os
-from apiKey import FRED_API_KEY
 from fredapi import Fred
 
 
 class getDataFromAPI():
-    def __init__(self, apiKey):
-        self.key = apiKey
+    def __init__(self, key):
+        self.key = key
         self.df = {}
 
     def toDF(self):
@@ -17,10 +18,33 @@ class getDataFromAPI():
         self.df.to_excel(path + filename, na_rep='NaN')
 
 
+class getQuandlData(getDataFromAPI):
+
+    def __init__(self, apiKey):
+        self.key = apiKey.QUANDL_API_KEY
+        self.df = {}
+
+    def getData(self, datapaths, datanames):
+
+        try:
+            if isinstance(datapaths, list):
+
+                for datapath, dataname in zip(datapaths, datanames):
+                    self.df[dataname] = quandl.get(
+                        datapath, authtoken=self.key)
+            elif isinstance(datapaths, str):
+                self.df[datanames] = quandl.get(datapaths, authtoken=self.key)
+            else:
+                return 'Input must be string or list.'
+
+        except:
+            return "Series does not exist"
+
+
 class getFredData(getDataFromAPI):
     def __init__(self):
-        self.key = FRED_API_KEY
-        self.fred = Fred(api_key=FRED_API_KEY)
+        self.key = apiKey.FRED_API_KEY
+        self.fred = Fred(api_key=self.key)
         self.df = {}
 
     def get_CPI_data(self):
